@@ -70,7 +70,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       className={classNames(
-        "inline-flex items-center rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2",
+        "inline-flex items-center rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 justify-center",
         getVariantClasses(variant),
         getSizeClasses(size),
         className

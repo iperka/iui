@@ -17,5 +17,8 @@ const Template: ComponentStory<typeof Button> = (args: ButtonProps) => (
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
-  label: "Hello world!",
+  children: "Hello world!",
+  variant: "primary",
+  size: "medium",
+  disabled: false,
 };

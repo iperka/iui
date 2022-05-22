@@ -1,5 +1,5 @@
 import React from "react";
-import classnames from "classnames";
+import classNames from "classnames";
 
 const getVariantClasses = (
   variant: "primary" | "secondary" | "white"
@@ -69,7 +69,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={classnames(
+      className={classNames(
         "inline-flex items-center rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2",
         getVariantClasses(variant),
         getSizeClasses(size),

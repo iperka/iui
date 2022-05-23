@@ -8,7 +8,8 @@ import "./InputGroup.scss";
  * @author Michael Beutler
  * @version 1.0.0
  */
-export interface InputGroupProps {
+export interface InputGroupProps
+  extends React.HTMLAttributes<HTMLInputElement> {
   label: string;
   type: React.HTMLInputTypeAttribute;
   disabled?: boolean;
@@ -22,7 +23,7 @@ export interface InputGroupProps {
  * ### Example:
  *
  * ```tsx
- * <InputGroup label="Hello world!" />
+ * <InputGroup label="Hello world!" type="text" />
  * ```
  *
  * @author Michael Beutler
@@ -34,12 +35,13 @@ const InputGroup: React.FC<InputGroupProps> = ({
   label,
   disabled,
   type,
+  className,
   ...rest
 }) => {
   return (
-    <div {...rest}>
+    <div className={className}>
       <Label>{label}</Label>
-      <Input type={type} disabled={disabled} />
+      <Input {...rest} type={type} disabled={disabled} />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 {
   "name": "@iperka/iui",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "UI component library for iperka.",
   "repository": "https://github.com/iperka/iui",
   "publishConfig": {
@@ -23,15 +23,15 @@
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.2",
-    "@storybook/addon-actions": "^6.5.3",
-    "@storybook/addon-essentials": "^6.4.22",
-    "@storybook/addon-interactions": "^6.5.3",
-    "@storybook/addon-links": "^6.5.3",
+    "@storybook/addon-actions": "^6.5.4",
+    "@storybook/addon-essentials": "^6.5.4",
+    "@storybook/addon-interactions": "^6.5.4",
+    "@storybook/addon-links": "^6.5.4",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/builder-webpack5": "^6.5.3",
-    "@storybook/manager-webpack5": "^6.5.3",
+    "@storybook/builder-webpack5": "^6.5.4",
+    "@storybook/manager-webpack5": "^6.5.4",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react": "^6.5.3",
+    "@storybook/react": "^6.5.4",
     "@storybook/testing-library": "^0.0.11",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.5.2",
@@ -75,5 +75,9 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@headlessui/react": "^1.6.2",
+    "@heroicons/react": "^1.0.6"
+  }
 }

@@ -6,3 +6,6 @@ export { default as Label } from "./Label";
 export {default as ListContainer} from './ListContainer';
 export {default as Container} from './Container';
 export {default as Card} from './Card';
+export {default as HeaderSection} from './HeaderSection';
+export {default as Navbar} from './Navbar';
+export {default as Avatar} from './Avatar';

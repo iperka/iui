@@ -15,5 +15,6 @@
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true
   },
-  "exclude": ["_templates"]
+  "exclude": ["_templates"],
+  "include": ["src/**/*.tsx", "src/**/*.ts", "**/*.d.ts"]
 }

@@ -1,6 +1,6 @@
 {
   "name": "@iperka/iui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "UI component library for iperka.",
   "repository": "https://github.com/iperka/iui",
   "publishConfig": {
@@ -21,6 +21,7 @@
     "@babel/preset-typescript": "^7.17.12",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-image": "^2.1.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.2",
     "@storybook/addon-actions": "^6.5.4",

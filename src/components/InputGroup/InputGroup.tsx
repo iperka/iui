@@ -1,5 +1,6 @@
 import React from "react";
-import { Input, Label } from "../";
+import Input from "../Input/Input";
+import Label from "../Label/Label";
 import "./InputGroup.scss";
 
 /**

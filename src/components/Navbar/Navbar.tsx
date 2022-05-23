@@ -2,8 +2,8 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import classNames from "classnames";
 import React, { Fragment } from "react";
-import { Avatar } from "../";
-import { AvatarProps } from "../Avatar/Avatar";
+import Avatar, { AvatarProps } from "../Avatar/Avatar";
+import LogoDark from "../../assets/logo_dark.svg";
 import "./Navbar.scss";
 
 /**
@@ -86,13 +86,13 @@ const Navbar: React.FC<NavbarProps> = ({
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     className="block lg:hidden h-8 w-auto"
-                    src={require("../../assets/logo_dark.svg")}
+                    src={LogoDark}
                     alt="iperka"
                     draggable={false}
                   />
                   <img
                     className="hidden lg:block h-8 w-auto"
-                    src={require("../../assets/logo_dark.svg")}
+                    src={LogoDark}
                     alt="iperka"
                     draggable={false}
                   />

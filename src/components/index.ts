@@ -9,3 +9,4 @@ export {default as Card} from './Card';
 export {default as HeaderSection} from './HeaderSection';
 export {default as Navbar} from './Navbar';
 export {default as Avatar} from './Avatar';
+export {default as Sidenav} from './Sidenav';

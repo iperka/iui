@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof Navbar> = (args: NavbarProps) => (
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
-  getLinkComponent: (href, children) => (
+  customLink: (href, children) => (
     <div onClick={() => alert(`Navigate to ${href}...`)}>{children}</div>
   ),
   items: [

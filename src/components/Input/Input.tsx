@@ -35,7 +35,7 @@ const Input: React.FC<InputProps> = ({ className, type = "text", ...rest }) => {
     <input
       type={type}
       className={classNames(
-        "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white disabled:bg-gray-200 disabled:opacity-50",
+        "shadow-sm focus:ring-primary-500 focus:border-primary-500 block w-full sm:text-sm border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white disabled:bg-gray-200 disabled:opacity-50",
         className
       )}
       {...rest}

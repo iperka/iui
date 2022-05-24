@@ -7,7 +7,7 @@ describe("Navbar", () => {
   test("should render Navbar component", () => {
     render(
       <Navbar
-        getLinkComponent={(href, children) => (
+        customLink={(href, children) => (
           <div onClick={() => alert(`Navigate to ${href}...`)}>{children}</div>
         )}
         items={[

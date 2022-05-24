@@ -13,10 +13,7 @@ import "./Navbar.scss";
  * @version 1.0.0
  */
 export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
-  getLinkComponent: (
-    href: string,
-    children: React.ReactNode
-  ) => React.ReactNode;
+  customLink: (href: string, children: React.ReactNode) => React.ReactNode;
   items: { label: string; href: string; current: boolean }[];
   userMenuItems: { label: string; href: string }[];
   avatar?: AvatarProps;
@@ -54,7 +51,7 @@ export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
  * @returns React functional component.
  */
 const Navbar: React.FC<NavbarProps> = ({
-  getLinkComponent,
+  customLink: customLink,
   items,
   userMenuItems,
   avatar,
@@ -101,14 +98,14 @@ const Navbar: React.FC<NavbarProps> = ({
                   <div className="flex space-x-4">
                     {items.map((item, index) => (
                       <Fragment key={item.href + index}>
-                        {getLinkComponent(
+                        {customLink(
                           item.href,
                           <div
                             className={classNames(
                               item.current
                                 ? "bg-gray-900 text-white"
                                 : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                              "px-3 py-2 rounded-md text-sm font-medium"
+                              "px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
                             )}
                             aria-current={item.current ? "page" : undefined}
                           >
@@ -141,14 +138,14 @@ const Navbar: React.FC<NavbarProps> = ({
                     <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       {userMenuItems.map((item, index) => (
                         <Fragment key={item.href + index}>
-                          {getLinkComponent(
+                          {customLink(
                             item.href,
                             <Menu.Item>
                               {({ active }) => (
                                 <div
                                   className={classNames(
                                     active ? "bg-gray-100" : "",
-                                    "block px-4 py-2 text-sm text-gray-700"
+                                    "block px-4 py-2 text-sm text-gray-700 cursor-pointer"
                                   )}
                                 >
                                   {item.label}
@@ -169,7 +166,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <div className="px-2 pt-2 pb-3 space-y-1">
               {items.map((item, index) => (
                 <Fragment key={item.href + index}>
-                  {getLinkComponent(
+                  {customLink(
                     item.href,
                     <Disclosure.Button
                       key={item.label}

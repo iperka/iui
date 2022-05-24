@@ -1,11 +1,12 @@
 import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
+import image from "@rollup/plugin-image";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
-import image from "@rollup/plugin-image";
+import sourcemaps from "rollup-plugin-sourcemaps";
 import { terser } from "rollup-plugin-terser";
 
 const packageJson = require("./package.json");
@@ -38,8 +39,14 @@ export default [
       }),
       resolve(),
       image(),
+      typescript({
+        tsconfig: "./tsconfig.json",
+        sourceMap: true,
+        inlineSources: true,
+      }),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      sourcemaps(),
+
       terser(),
     ],
     external: ["react", "react-dom"],

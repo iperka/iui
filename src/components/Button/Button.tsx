@@ -6,14 +6,14 @@ const getVariantClasses = (
 ): string => {
   switch (variant) {
     case "secondary":
-      return "border border-transparent text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:ring-indigo-500 disabled:opacity-50 disabled:hover:bg-indigo-100 disabled:cursor-not-allowed";
+      return "border border-transparent text-primary-700 bg-primary-100 hover:bg-primary-200 focus:ring-primary-500 disabled:opacity-50 disabled:hover:bg-primary-100 disabled:cursor-not-allowed";
 
     case "white":
-      return "border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-indigo-500 disabled:opacity-50 disabled:hover:bg-white disabled:cursor-not-allowed";
+      return "border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-primary-500 disabled:opacity-50 disabled:hover:bg-white disabled:cursor-not-allowed";
 
     case "primary":
     default:
-      return "border border-transparent text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 disabled:opacity-50 disabled:hover:bg-indigo-600 disabled:cursor-not-allowed";
+      return "border border-transparent text-white bg-primary-600 hover:bg-primary-700 focus:ring-primary-500 disabled:opacity-50 disabled:hover:bg-primary-600 disabled:cursor-not-allowed";
   }
 };
 

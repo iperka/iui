@@ -20,6 +20,7 @@ export interface SidenavProps extends React.HTMLAttributes<HTMLElement> {
   }[];
   secondaryTitle?: string;
   secondaryItems?: { label: string; href: string }[];
+  hideLogo?: boolean;
 }
 
 /**
@@ -61,6 +62,7 @@ const Sidenav: React.FC<SidenavProps> = ({
   items = [],
   secondaryItems = [],
   secondaryTitle,
+  hideLogo,
   className,
   ...rest
 }) => {
@@ -72,20 +74,22 @@ const Sidenav: React.FC<SidenavProps> = ({
       )}
       {...rest}
     >
-      <div className="flex items-center flex-shrink-0 px-4">
-        <img
-          className="h-8 w-auto dark:hidden"
-          src={LogoLight}
-          alt="iperka"
-          draggable="false"
-        />
-        <img
-          className="h-8 w-auto hidden dark:block"
-          src={LogoDark}
-          alt="iperka"
-          draggable="false"
-        />
-      </div>
+      {!hideLogo && (
+        <div className="flex items-center flex-shrink-0 px-4">
+          <img
+            className="h-8 w-auto dark:hidden"
+            src={LogoLight}
+            alt="iperka"
+            draggable="false"
+          />
+          <img
+            className="h-8 w-auto hidden dark:block"
+            src={LogoDark}
+            alt="iperka"
+            draggable="false"
+          />
+        </div>
+      )}
       <div className="mt-5 flex-grow flex flex-col">
         <nav
           className="flex-1 px-2 space-y-8 bg-white dark:bg-gray-800"

@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "../Input/Input";
 import Label from "../Label/Label";
+import ValidationMessage from "../ValidationMessage";
 import "./InputGroup.scss";
 
 /**
@@ -14,6 +15,7 @@ export interface InputGroupProps
   label: string;
   type: React.HTMLInputTypeAttribute;
   disabled?: boolean;
+  errors?: string[];
 }
 
 /**
@@ -36,6 +38,7 @@ const InputGroup: React.FC<InputGroupProps> = ({
   label,
   disabled,
   type,
+  errors,
   className,
   ...rest
 }) => {
@@ -43,6 +46,7 @@ const InputGroup: React.FC<InputGroupProps> = ({
     <div className={className}>
       <Label>{label}</Label>
       <Input {...rest} type={type} disabled={disabled} />
+      {errors && <ValidationMessage errors={errors} />}
     </div>
   );
 };

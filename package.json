@@ -1,18 +1,24 @@
 {
   "name": "@iperka/iui",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "UI component library for iperka.",
   "repository": "https://github.com/iperka/iui",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/iperka/iui"
   },
-  "author": "Michael Beutler",
+  "author": {
+    "name": "Michael Beutler",
+    "email": "michael.beutler@iperka.com",
+    "url": "https://iperka.com"
+  },
   "license": "MIT",
   "scripts": {
     "rollup": "rollup -c",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "ci": "yarn install --immutable --immutable-cache --check-cache",
+    "lint": "eslint -c .eslintrc.json --ext .js,.jsx,.ts,.tsx src"
   },
   "devDependencies": {
     "@babel/core": "^7.18.0",
@@ -41,17 +47,28 @@
     "@testing-library/react": "^13.2.0",
     "@types/jest": "^27.5.1",
     "@types/react": "^18.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
     "autoprefixer": "^10.4.7",
     "babel-jest": "^28.1.0",
     "babel-loader": "^8.2.5",
     "classnames": "^2.3.1",
     "css-loader": "^6.7.1",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^26.4.6",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.30.0",
     "hygen": "^6.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
     "postcss": "^8.4.14",
     "postcss-import": "^14.1.0",
+    "prettier": "2.6.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "rollup": "^2.74.1",

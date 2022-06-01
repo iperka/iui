@@ -1,4 +1,5 @@
 name: Publish package 📦
+
 on:
   release:
     types: [published]
@@ -7,20 +8,19 @@ on:
       - "*"
 
 jobs:
-  publish-package:
-    name: Publish Package
+  publish-gpr:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 17
+          node-version: 16
           registry-url: https://npm.pkg.github.com/
-          always-auth: true
-      - run: mpm install
-      - run: npm publish
+      - run: yarn install
+      - run: yarn rollup
+      - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

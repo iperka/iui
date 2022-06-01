@@ -13,7 +13,7 @@ const packageJson = require("./package.json");
 
 export default [
   {
-    input: "src/index.ts",
+    input: "./src/index.ts",
     output: [
       {
         file: packageJson.main,
@@ -35,7 +35,7 @@ export default [
       }),
       babel({
         babelHelpers: "bundled",
-        exclude: "node_modules/**",
+        exclude: "./node_modules/**",
       }),
       resolve(),
       image(),
@@ -52,8 +52,8 @@ export default [
     external: ["react", "react-dom"],
   },
   {
-    input: "dist/esm/types/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
+    input: "./dist/esm/types/index.d.ts",
+    output: [{ file: "./dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
     external: [/\.(css|less|scss)$/],
   },

@@ -74,7 +74,7 @@ const Avatar: React.FC<AvatarProps> = ({
     console.warn(`Avatar: Initials "${initials}" are too long!`);
   }
 
-  const StatusIndicator = () =>
+  const StatusIndicator: React.FC = () =>
     status ? (
       <span
         className={classNames(

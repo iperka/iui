@@ -16,5 +16,5 @@
     "emitDeclarationOnly": true
   },
   "exclude": ["_templates"],
-  "include": ["src/**/*.tsx", "src/**/*.ts", "**/*.d.ts"]
+  "include": ["src/**/*.tsx", "src/**/*.ts", "**/*.d.ts", "tests.ts"]
 }

@@ -5,7 +5,7 @@ import Avatar from "./Avatar";
 
 describe("Avatar", () => {
   test("should render Avatar component", () => {
-    render(<Avatar initials="TS" />);
+    expect(render(<Avatar initials="TS" />)).toBeDefined();
   });
 
   test("should warn in console if length of initials is invalid", () => {
@@ -56,7 +56,7 @@ describe("Avatar", () => {
     busy: "bg-red-500",
     away: "bg-yellow-500",
   };
-  
+
   Object.keys(statuses).forEach((status: any) => {
     const statusClass = (statuses as any)[status];
 

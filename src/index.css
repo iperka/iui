@@ -2,4 +2,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-* { transition: background-color; transition-duration: 0.5s; }
+* {
+  transition: background-color;
+  transition-duration: 0.5s;
+}

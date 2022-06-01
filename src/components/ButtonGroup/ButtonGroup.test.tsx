@@ -6,12 +6,14 @@ import { Button } from "..";
 
 describe("ButtonGroup", () => {
   test("should render ButtonGroup component", () => {
-    render(
-      <ButtonGroup variant="responsive">
-        <Button>Test1</Button>
-        <Button>Test2</Button>
-        <Button>Test3</Button>
-      </ButtonGroup>
-    );
+    expect(
+      render(
+        <ButtonGroup variant="responsive">
+          <Button>Test1</Button>
+          <Button>Test2</Button>
+          <Button>Test3</Button>
+        </ButtonGroup>
+      )
+    ).toBeDefined();
   });
 });

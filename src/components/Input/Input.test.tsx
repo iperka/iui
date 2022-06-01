@@ -5,6 +5,6 @@ import Input from "./Input";
 
 describe("Input", () => {
   test("should render Input component", () => {
-    render(<Input type={"email"} />);
+    expect(render(<Input type={"email"} />)).toBeDefined();
   });
 });

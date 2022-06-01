@@ -5,10 +5,6 @@ import Card from "./Card";
 
 describe("Card", () => {
   test("should render Card component", () => {
-    render(<Card>Hello World</Card>);
-  });
-
-  test("should render Card with header component", () => {
-    render(<Card header="Test">Hello World</Card>);
+    expect(render(<Card>Hello World</Card>)).toBeDefined();
   });
 });

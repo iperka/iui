@@ -4,7 +4,7 @@ import Button from "./Button";
 
 describe("Button", () => {
   test("should render Button component", () => {
-    render(<Button>Test</Button>);
+    expect(render(<Button>Test</Button>)).toBeDefined();
   });
 
   test("should render children", () => {

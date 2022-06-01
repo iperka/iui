@@ -5,6 +5,8 @@ import InputGroup from "./InputGroup";
 
 describe("InputGroup", () => {
   test("should render InputGroup component", () => {
-    render(<InputGroup type={"text"} label="Hello world!" />);
+    expect(
+      render(<InputGroup type={"text"} label="Hello world!" />)
+    ).toBeDefined();
   });
 });

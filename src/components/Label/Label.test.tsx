@@ -5,6 +5,6 @@ import Label from "./Label";
 
 describe("Label", () => {
   test("should render Label component", () => {
-    render(<Label>Email</Label>);
+    expect(render(<Label>Email</Label>)).toBeDefined();
   });
 });

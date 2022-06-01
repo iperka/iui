@@ -17,5 +17,5 @@ const Template: ComponentStory<typeof ListContainer> = (
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
-  items: [<p>Test1</p>, <p>Test2</p>, <p>Test3</p>],
+  items: [<p key={0}>Test1</p>, <p key={1}>Test2</p>, <p key={2}>Test3</p>],
 };

@@ -19,8 +19,8 @@ export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
   children: [
-    <Button>Test1</Button>,
-    <Button>Test2</Button>,
-    <Button>Test3</Button>,
+    <Button key={0}>Test1</Button>,
+    <Button key={1}>Test2</Button>,
+    <Button key={2}>Test3</Button>,
   ],
 };

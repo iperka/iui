@@ -32,3 +32,23 @@ Default.args = {
     { label: "Log out", href: "#" },
   ],
 };
+
+export const Sticky = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+Sticky.args = {
+  customLink: (href, children) => (
+    <div onClick={() => alert(`Navigate to ${href}...`)}>{children}</div>
+  ),
+  items: [
+    { label: "Dashboard", href: "#", current: true },
+    { label: "Team", href: "#", current: false },
+    { label: "Projects", href: "#", current: false },
+    { label: "Calendar", href: "#", current: false },
+  ],
+  userMenuItems: [
+    { label: "Profile", href: "#" },
+    { label: "Settings", href: "#" },
+    { label: "Log out", href: "#" },
+  ],
+  sticky: true,
+};

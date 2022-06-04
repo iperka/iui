@@ -40,7 +40,7 @@ const getSizeClassesForStatus = (
  * @author Michael Beutler
  * @version 1.0.0
  */
-export interface AvatarProps {
+export interface AvatarProps extends React.HTMLAttributes<HTMLElement> {
   url?: string;
   status?: "online" | "offline" | "busy" | "away";
   initials?: string;
@@ -68,6 +68,7 @@ const Avatar: React.FC<AvatarProps> = ({
   size = "medium",
   status,
   initials,
+  className,
   ...rest
 }) => {
   if (initials && initials.length > 2) {
@@ -100,8 +101,10 @@ const Avatar: React.FC<AvatarProps> = ({
       <span
         className={classNames(
           "inline-block relative",
-          getSizeClassesForAvatar(size)
+          getSizeClassesForAvatar(size),
+          className
         )}
+        {...rest}
       >
         <span
           className={classNames(
@@ -124,7 +127,10 @@ const Avatar: React.FC<AvatarProps> = ({
 
   if (!url) {
     return (
-      <span className="inline-block relative">
+      <span
+        className={classNames("inline-block relative", className)}
+        {...rest}
+      >
         <span
           className={classNames(
             "inline-flex items-center justify-center rounded-full bg-gray-500",
@@ -148,7 +154,7 @@ const Avatar: React.FC<AvatarProps> = ({
   }
 
   return (
-    <span className="inline-block relative">
+    <span className={classNames("inline-block relative", className)} {...rest}>
       <img
         className={classNames("rounded-full", getSizeClassesForAvatar(size))}
         src={url}

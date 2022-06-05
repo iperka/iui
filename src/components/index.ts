@@ -11,3 +11,4 @@ export { default as Navbar } from "./Navbar";
 export { default as Avatar } from "./Avatar";
 export { default as Sidenav } from "./Sidenav";
 export { default as ValidationMessage } from "./ValidationMessage";
+export {default as StackedLayout} from './StackedLayout';

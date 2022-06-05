@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "classnames";
+import { ForwardRefComponent, HTMLMotionProps, motion } from "framer-motion";
 
 const getVariantClasses = (
   variant: "primary" | "secondary" | "white"
@@ -38,10 +39,11 @@ const getSizeClasses = (size: "small" | "medium" | "large"): string => {
  * @version 1.0.1
  */
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  extends ForwardRefComponent<HTMLButtonElement, HTMLMotionProps<"button">> {
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "white";
   size?: "small" | "medium" | "large";
+  className?: string;
 }
 
 /**
@@ -68,7 +70,9 @@ const Button: React.FC<ButtonProps> = ({
   ...rest
 }) => {
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
       className={classNames(
         "inline-flex items-center rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 justify-center",
         getVariantClasses(variant),
@@ -78,7 +82,7 @@ const Button: React.FC<ButtonProps> = ({
       {...rest}
     >
       {children}
-    </button>
+    </motion.button>
   );
 };
 

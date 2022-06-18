@@ -59,7 +59,8 @@ export interface CalendarDayProps extends React.HTMLAttributes<HTMLDivElement> {
  *        summary: "My Event",
  *        start: moment("2022-01-01 17:00:00"),
  *        end: moment("2022-01-01 17:30:00"),
- *        onPress: (event: Event) => console.log("Event: ", event)
+ *        onPress: (event: Event) => console.log("Event: ", event),
+ *        color: "blue"
  *      },
  *    ]}
  * />
@@ -191,7 +192,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
                       "text-gray-500 group-hover:text-gray-700"
                   )}
                 >
-                  <time dateTime="2022-01-22T06:00">
+                  <time dateTime={event.start.format()}>
                     {event.start.format("HH:mm")} - {event.end.format("HH:mm")}
                   </time>
                 </p>

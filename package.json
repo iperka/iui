@@ -98,6 +98,7 @@
   "dependencies": {
     "@headlessui/react": "^1.6.2",
     "@heroicons/react": "^1.0.6",
-    "framer-motion": "^6.3.10"
+    "framer-motion": "^6.3.10",
+    "moment": "^2.29.3"
   }
 }

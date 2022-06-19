@@ -2,7 +2,10 @@
   "name": "@iperka/iui",
   "version": "0.0.13",
   "description": "UI component library for iperka.",
-  "repository": "https://github.com/iperka/iui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iperka/iui.git"
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/iperka/iui"
   },
@@ -19,7 +22,8 @@
     "build-storybook": "build-storybook",
     "ci": "yarn install --immutable --immutable-cache --check-cache",
     "lint": "eslint -c .eslintrc.json --ext .js,.jsx,.ts,.tsx src",
-    "generate-screenshots": "storycap --serverCmd \"start-storybook -p 9001\" http://localhost:9001"
+    "generate-screenshots": "storycap --serverCmd \"start-storybook -p 9001\" http://localhost:9001",
+    "chromatic": "npx chromatic"
   },
   "devDependencies": {
     "@babel/core": "^7.18.0",
@@ -53,6 +57,7 @@
     "autoprefixer": "^10.4.7",
     "babel-jest": "^28.1.0",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.6.3",
     "classnames": "^2.3.1",
     "css-loader": "^6.7.1",
     "eslint": "^8.16.0",
@@ -103,5 +108,11 @@
     "@heroicons/react": "^1.0.6",
     "framer-motion": "^6.3.10",
     "moment": "^2.29.3"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/iperka/iui/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/iperka/iui#readme",
+  "_id": "@iperka/iui@0.0.13"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@iperka/iui",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "UI component library for iperka.",
   "repository": {
     "type": "git",
@@ -100,7 +100,9 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "types": "dist/index.d.ts",
   "dependencies": {
@@ -112,7 +114,5 @@
   "bugs": {
     "url": "https://github.com/iperka/iui/issues"
   },
-  "readme": "ERROR: No README data found!",
-  "homepage": "https://github.com/iperka/iui#readme",
-  "_id": "@iperka/iui@0.0.13"
+  "homepage": "https://github.com/iperka/iui#readme"
 }

@@ -138,7 +138,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
             <li
               key={i}
               className="relative mt-px flex"
-              style={{ gridRow: getGridRowForEvent(event, timeline) }}
+              style={{ gridRow: getGridRowForEvent(event, timeline, interval) }}
             >
               <div
                 onClick={() => event.onPress && event.onPress(event)}

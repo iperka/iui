@@ -4,6 +4,8 @@ React component library for all iperka apps using React and TypeScript.
 
 [Screenshots](__screenshots__/)
 
+[Chromatic Library](https://www.chromatic.com/library?appId=62aece68e29ccfa98f49e265)
+
 ## Install ⚙
 
 In order to work the GitHub package registry must be added. [See docs](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)

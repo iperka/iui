@@ -9,7 +9,7 @@ import { getGridRowForEvent } from "./helpers";
  * Interface describing a calendar event.
  *
  * @author Michael Beutler
- * @version 1.0.0
+ * @version 1.0.2
  */
 export interface Event<T> {
   start: Moment;
@@ -23,7 +23,6 @@ export interface Event<T> {
     | "orange"
     | "purple"
     | "pink"
-    | "brown"
     | "grey";
   onPress?: (event: Event<T>) => void;
   metadata?: T;
@@ -67,7 +66,7 @@ export interface CalendarDayProps extends React.HTMLAttributes<HTMLDivElement> {
  * ```
  *
  * @author Michael Beutler
- * @version 1.0.0
+ * @version 1.0.2
  * @param {CalendarDayProps} props Component properties.
  * @returns React functional component.
  */
@@ -77,7 +76,6 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
   interval = 15,
   events,
   className,
-  color = "blue",
   ...rest
 }) => {
   if (end.isBefore(start)) {
@@ -144,51 +142,51 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
                 onClick={() => event.onPress && event.onPress(event)}
                 className={classNames(
                   "group absolute inset-1 flex flex-col overflow-y-auto rounded-lg p-2 text-xs leading-5",
-                  color === "red" && "bg-red-50 hover:bg-red-100",
-                  color === "green" && "bg-green-50 hover:bg-green-100",
-                  color === "blue" && "bg-blue-50 hover:bg-blue-100",
-                  color === "yellow" && "bg-yellow-50 hover:bg-yellow-100",
-                  color === "orange" && "bg-orange-50 hover:bg-orange-100",
-                  color === "purple" && "bg-purple-50 hover:bg-purple-100",
-                  color === "pink" && "bg-pink-50 hover:bg-pink-100",
-                  color === "brown" && "bg-brown-50 hover:bg-brown-100",
-                  color === "grey" && "bg-gray-50 hover:bg-gray-100"
+                  event.color === "red" && "bg-red-50 hover:bg-red-100",
+                  event.color === "green" && "bg-green-50 hover:bg-green-100",
+                  event.color === "blue" && "bg-blue-50 hover:bg-blue-100",
+                  event.color === "yellow" &&
+                    "bg-yellow-50 hover:bg-yellow-100",
+                  event.color === "orange" &&
+                    "bg-orange-50 hover:bg-orange-100",
+                  event.color === "purple" &&
+                    "bg-purple-50 hover:bg-purple-100",
+                  event.color === "pink" && "bg-pink-50 hover:bg-pink-100",
+                  event.color === "grey" && "bg-gray-50 hover:bg-gray-100"
                 )}
               >
                 <p
                   className={classNames(
                     "order-1 font-semibold",
-                    color === "red" && "text-red-700",
-                    color === "green" && "text-green-700",
-                    color === "blue" && "text-blue-700",
-                    color === "yellow" && "text-yellow-700",
-                    color === "orange" && "text-orange-700",
-                    color === "purple" && "text-purple-700",
-                    color === "pink" && "text-pink-700",
-                    color === "brown" && "text-brown-700",
-                    color === "grey" && "text-gray-700"
+                    event.color === "red" && "text-red-700",
+                    event.color === "green" && "text-green-700",
+                    event.color === "blue" && "text-blue-700",
+                    event.color === "yellow" && "text-yellow-700",
+                    event.color === "orange" && "text-orange-700",
+                    event.color === "purple" && "text-purple-700",
+                    event.color === "pink" && "text-pink-700",
+                    event.color === "grey" && "text-gray-700"
                   )}
                 >
                   {event.summary}
                 </p>
                 <p
                   className={classNames(
-                    color === "red" && "text-red-500 group-hover:text-red-700",
-                    color === "green" &&
+                    event.color === "red" &&
+                      "text-red-500 group-hover:text-red-700",
+                    event.color === "green" &&
                       "text-green-500 group-hover:text-green-700",
-                    color === "blue" &&
+                    event.color === "blue" &&
                       "text-blue-500 group-hover:text-blue-700",
-                    color === "yellow" &&
+                    event.color === "yellow" &&
                       "text-yellow-500 group-hover:text-yellow-700",
-                    color === "orange" &&
+                    event.color === "orange" &&
                       "text-orange-500 group-hover:text-orange-700",
-                    color === "purple" &&
+                    event.color === "purple" &&
                       "text-purple-500 group-hover:text-purple-700",
-                    color === "pink" &&
+                    event.color === "pink" &&
                       "text-pink-500 group-hover:text-pink-700",
-                    color === "brown" &&
-                      "text-brown-500 group-hover:text-brown-700",
-                    color === "grey" &&
+                    event.color === "grey" &&
                       "text-gray-500 group-hover:text-gray-700"
                   )}
                 >

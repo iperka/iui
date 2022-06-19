@@ -18,7 +18,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "ci": "yarn install --immutable --immutable-cache --check-cache",
-    "lint": "eslint -c .eslintrc.json --ext .js,.jsx,.ts,.tsx src"
+    "lint": "eslint -c .eslintrc.json --ext .js,.jsx,.ts,.tsx src",
+    "generate-screenshots": "storycap --serverCmd \"start-storybook -p 9001\" http://localhost:9001"
   },
   "devDependencies": {
     "@babel/core": "^7.18.0",
@@ -81,6 +82,7 @@
     "sass": "^1.52.1",
     "sass-loader": "^13.0.0",
     "storybook-tailwind-dark-mode": "^1.0.12",
+    "storycap": "^3.1.8",
     "style-loader": "^3.3.1",
     "tailwindcss": "3.1.1",
     "tslib": "^2.4.0",

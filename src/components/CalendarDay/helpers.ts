@@ -12,13 +12,14 @@ import { Event } from "./CalendarDay";
  */
 export const getGridRowForEvent = (
   event: Event<any>,
-  timeline: Moment[]
+  timeline: Moment[],
+  interval: number
 ): string => {
   const start = Math.floor(
-    (event.start.diff(timeline[0], "minutes") + 1) / (timeline.length / 2)
+    (event.start.diff(timeline[0], "minutes") + 1) / interval
   );
   const duration = Math.floor(
-    (event.end.diff(event.start, "minutes") + 1) / (timeline.length / 2)
+    (event.end.diff(event.start, "minutes") + 1) / interval
   );
 
   return `${start + 2} / span ${duration}`;

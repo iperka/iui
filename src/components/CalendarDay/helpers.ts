@@ -5,7 +5,7 @@ import { Event } from "./CalendarDay";
  * Helper functions for the calendar day component.
  *
  * @author Michael Beutler
- * @version 1.0.0
+ * @version 1.0.2
  * @param event Calendar event.
  * @param timeline Current timeline.
  * @returns GridRow style definitions.

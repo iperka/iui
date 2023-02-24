@@ -40,7 +40,7 @@ const getSizeClasses = (size: "small" | "medium" | "large"): string => {
  */
 export interface ButtonProps
   extends ForwardRefComponent<HTMLButtonElement, HTMLMotionProps<"button">> {
-  children: React.ReactNode;
+  children: React.ReactNode | string;
   variant?: "primary" | "secondary" | "white";
   size?: "small" | "medium" | "large";
   className?: string;

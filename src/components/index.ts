@@ -14,5 +14,5 @@ export { default as ValidationMessage } from "./ValidationMessage";
 export { default as StackedLayout } from "./StackedLayout";
 export { default as CalendarDay } from "./CalendarDay";
 export { default as Testimonial } from "./Testimonial";
-export {default as Footer} from './Footer';
-export {default as PrivacyNotice} from './PrivacyNotice';
+export { default as Footer } from "./Footer";
+export { default as PrivacyNotice } from "./PrivacyNotice";

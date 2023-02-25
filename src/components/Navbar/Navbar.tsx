@@ -21,6 +21,7 @@ export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
   fullWidth?: boolean;
   avatarHidden?: boolean;
   sticky?: boolean;
+  signInAction?: () => void;
 }
 
 /**
@@ -63,6 +64,7 @@ const Navbar: React.FC<NavbarProps> = ({
   fullWidth,
   avatarHidden,
   sticky,
+  signInAction,
   ...rest
 }) => {
   return (
@@ -132,7 +134,9 @@ const Navbar: React.FC<NavbarProps> = ({
               {avatarHidden ? (
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   <div className="flex flex-1 items-center justify-end gap-x-6">
-                    <Button size="medium">Sign In</Button>
+                    <Button size="medium" onClick={signInAction}>
+                      Sign In
+                    </Button>
                   </div>
                 </div>
               ) : (

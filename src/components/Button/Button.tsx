@@ -1,6 +1,11 @@
-import React from "react";
+import React, { ComponentPropsWithRef } from "react";
 import classNames from "classnames";
-import { ForwardRefComponent, HTMLMotionProps, motion } from "framer-motion";
+import {
+  ForwardRefComponent,
+  HTMLMotionProps,
+  motion,
+  MotionProps,
+} from "framer-motion";
 
 const getVariantClasses = (
   variant: "primary" | "secondary" | "white"
@@ -38,8 +43,7 @@ const getSizeClasses = (size: "small" | "medium" | "large"): string => {
  * @author Michael Beutler
  * @version 1.0.1
  */
-export interface ButtonProps
-  extends ForwardRefComponent<HTMLButtonElement, HTMLMotionProps<"button">> {
+export interface ButtonProps extends ComponentPropsWithRef<"button"> {
   children: React.ReactNode | string;
   variant?: "primary" | "secondary" | "white";
   size?: "small" | "medium" | "large";
@@ -62,7 +66,7 @@ export interface ButtonProps
  * @param {ButtonProps} props Component properties.
  * @returns React functional component.
  */
-const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps & MotionProps> = ({
   children,
   variant = "primary",
   size = "medium",

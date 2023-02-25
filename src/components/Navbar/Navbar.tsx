@@ -5,6 +5,7 @@ import React, { Fragment } from "react";
 import Avatar, { AvatarProps } from "../Avatar/Avatar";
 import LogoDark from "../../assets/logo_dark.svg";
 import "./Navbar.scss";
+import Button from "../Button";
 
 /**
  * Interface describing component properties.
@@ -114,7 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({
                           <div
                             className={classNames(
                               item.current
-                                ? "bg-gray-900 text-white"
+                                ? "bg-gray-600 text-white"
                                 : "text-gray-300 hover:bg-gray-700 hover:text-white",
                               "px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
                             )}
@@ -128,7 +129,13 @@ const Navbar: React.FC<NavbarProps> = ({
                   </div>
                 </div>
               </div>
-              {!avatarHidden && (
+              {avatarHidden ? (
+                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                  <div className="flex flex-1 items-center justify-end gap-x-6">
+                    <Button size="medium">Sign In</Button>
+                  </div>
+                </div>
+              ) : (
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   {/* Profile dropdown */}
                   <Menu as="div" className="ml-3 relative">

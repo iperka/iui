@@ -8,6 +8,6 @@ import <%= h.changeCase.pascal(name) %> from "./<%= h.changeCase.pascal(name) %>
 
 describe("<%= h.changeCase.pascal(name) %>", () => {
   test("should render <%= h.changeCase.pascal(name) %> component", () => {
-    expect(expect(render(<<%= h.changeCase.pascal(name) %> label="Hello world!" />)).toBeDefined();
+    expect(expect(render(<<%= h.changeCase.pascal(name) %> label="Hello world!" />))).toBeDefined();
   });
 });

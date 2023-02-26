@@ -7,7 +7,7 @@
     "url": "git+https://github.com/iperka/iui.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/iperka/iui"
+    "registry": "https://npm.pkg.github.com/"
   },
   "author": {
     "name": "Michael Beutler",

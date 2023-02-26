@@ -20,8 +20,27 @@ jobs:
           node-version: 19
           registry-url: https://npm.pkg.github.com/
           always-auth: true
+          scope: "@iperka"
       - run: yarn install
       - run: yarn rollup
-      - run: yarn publish
+      - run: echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  publish-npm:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 19
+          registry-url: "https://registry.npmjs.org"
+          always-auth: true
+          scope: "@iperka"
+      - run: yarn install
+      - run: yarn rollup
+      - run: echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc && yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

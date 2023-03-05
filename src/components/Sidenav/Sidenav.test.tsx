@@ -3,7 +3,7 @@ import {
   HomeIcon,
   MapIcon,
   UsersIcon,
-} from "@heroicons/react/outline";
+} from "@heroicons/react/24/outline";
 import { render } from "@testing-library/react";
 import React from "react";
 import Sidenav from "./Sidenav";
@@ -19,13 +19,28 @@ describe("Sidenav", () => {
             </div>
           )}
           items={[
-            { label: "Dashboard", icon: HomeIcon, href: "#", current: true },
-            { label: "Team", href: "#", icon: UsersIcon, current: false },
-            { label: "Projects", href: "#", icon: MapIcon, current: false },
+            {
+              label: "Dashboard",
+              icon: HomeIcon as any,
+              href: "#",
+              current: true,
+            },
+            {
+              label: "Team",
+              href: "#",
+              icon: UsersIcon as any,
+              current: false,
+            },
+            {
+              label: "Projects",
+              href: "#",
+              icon: MapIcon as any,
+              current: false,
+            },
             {
               label: "Calendar",
               href: "#",
-              icon: CalendarIcon,
+              icon: CalendarIcon as any,
               current: false,
             },
           ]}

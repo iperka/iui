@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render Header like snapshot 1`] = `
+<div>
+  <header
+    class="bg-white dark:bg-gray-900"
+  >
+    <nav
+      aria-label="Global"
+      class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+    >
+      <div
+        class="flex lg:flex-1"
+      >
+        <a
+          class="-m-1.5 p-1.5"
+          href="#"
+        >
+          <span
+            class="sr-only"
+          >
+            iperka
+          </span>
+          <img
+            alt="iperka"
+            class="h-8 w-auto dark:hidden"
+            src="SvgrURL"
+          />
+          <img
+            alt="iperka"
+            class="h-8 w-auto hidden dark:block"
+            src="SvgrURL"
+          />
+        </a>
+      </div>
+      <div
+        class="flex lg:hidden"
+      >
+        <button
+          class="inline-flex items-center rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 justify-center border border-gray-300 text-gray-700 bg-transparent hover:bg-gray-50 focus:ring-primary-500 disabled:opacity-50 disabled:hover:bg-white disabled:cursor-not-allowed px-4 py-2 text-sm font-medium  -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-400"
+          type="button"
+        >
+          <span
+            class="sr-only"
+          >
+            Open main menu
+          </span>
+          <svg
+            aria-hidden="true"
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="hidden lg:flex lg:gap-x-12"
+      >
+        <a
+          class="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+          href="/"
+        >
+          Home
+        </a>
+        <a
+          class="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+          href="/about"
+        >
+          About
+        </a>
+        <a
+          class="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+          href="/contact"
+        >
+          Contact
+        </a>
+      </div>
+      <div
+        class="hidden lg:flex lg:flex-1 lg:justify-end gap-x-6"
+      />
+    </nav>
+    <div
+      style="position: absolute; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px; display: none;"
+    />
+  </header>
+</div>
+`;

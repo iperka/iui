@@ -10,11 +10,6 @@ describe("Footer", () => {
         render(
           <Footer
             copyright={`&copy; ${new Date().getFullYear()} iperka, Inc. All rights reserved.`}
-            customLink={(href, children) => (
-              <div onClick={() => alert(`Navigate to ${href}...`)}>
-                {children}
-              </div>
-            )}
             navigation={[
               {
                 name: "GitHub",

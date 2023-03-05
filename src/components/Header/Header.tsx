@@ -2,19 +2,17 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import React, { useState } from "react";
+import logoDark from "../../assets/logo_dark.svg";
+import logo from "../../assets/logo_light.svg";
 import { CustomImageComponent } from "../../helpers/Image";
 import { CustomLinkComponent } from "../../helpers/Link";
 import Button from "../Button";
-import logo from "../../assets/logo_light.svg";
-import logoDark from "../../assets/logo_dark.svg";
 import "./Header.scss";
 
-const navigation = [
-  { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
-];
+export interface NavItem {
+  label: string;
+  href: string;
+}
 
 /**
  * Interface describing component properties.
@@ -41,9 +39,72 @@ export interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
    * If not set, the `logoSrc` will be used.
    */
   logoSrcDark?: string;
+
+  /**
+   * ### Logo Alt Text
+   * Alt text for the logo.
+   */
   logoAlt: string;
 
   variant?: "default" | "primary";
+
+  /**
+   * ### Navigation
+   * Navigation items to display in the header.
+   * When a custom link component is used, the `href` property will be passed as `href` prop.
+   * See {@link CustomLinkComponent} for more information.
+   *
+   * #### Example:
+   * ```tsx
+   * <Header
+   *   navigation={[
+   *     {
+   *       label: "Home",
+   *       href: "/",
+   *     },
+   *     {
+   *       label: "About",
+   *       href: "/about",
+   *     },
+   *     {
+   *       label: "Contact",
+   *       href: "/contact",
+   *     },
+   *   ]}
+   * />;
+   * ```
+   */
+  navigation: NavItem[];
+
+  /**
+   * ### Call To Action
+   * Call to action button to display in the header.
+   * If not set, the button will not be displayed.
+   *
+   * #### Example:
+   * ```tsx
+   * <Header
+   *  callToAction={{
+   *    label: "Sign Up",
+   *    href: "/sign-up",
+   *  }}
+   * />
+   * ```
+   */
+  callToAction?: NavItem;
+
+  /**
+   * ### Sign In Href
+   * Href for the sign in button.
+   * If not set, the button will not be displayed.
+   * If set, the button will be displayed.
+   *
+   * #### Example:
+   * ```tsx
+   * <Header signInHref="/sign-in" />
+   * ```
+   */
+  signInHref?: string;
 
   /**
    * ### Custom Link Component
@@ -108,6 +169,20 @@ export interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
    * ```
    */
   signInButtonText?: string;
+
+  /**
+   * ### Align
+   * Alignment of the header.
+   * Possible values are `center` and `right`.
+   *
+   * **Default:** `center`
+   *
+   * #### Example:
+   * ```tsx
+   * <Header align="right" />
+   * ```
+   */
+  align?: "center" | "right";
 }
 
 /**
@@ -133,7 +208,10 @@ const Header: React.FC<HeaderProps> = ({
   logoSrcDark = logoDark,
   logoAlt,
   variant = "default",
+  align = "center",
+  signInHref,
   className,
+  callToAction,
   customLinkComponent: CustomLink = (props) => (
     <a {...props}>{props.children}</a>
   ),
@@ -143,6 +221,7 @@ const Header: React.FC<HeaderProps> = ({
     closeMenu: "Close menu",
   },
   signInButtonText = "Sign In",
+  navigation = [],
   ...rest
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -159,7 +238,23 @@ const Header: React.FC<HeaderProps> = ({
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
       >
-        <div className="flex lg:flex-1">
+        {align === "center" ? (
+          <div className="flex lg:flex-1">
+            <CustomLink href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">{companyName}</span>
+              <CustomImage
+                className="h-8 w-auto dark:hidden"
+                src={variant === "primary" ? logoSrcDark : logoSrc}
+                alt={logoAlt}
+              />
+              <CustomImage
+                className="h-8 w-auto hidden dark:block"
+                src={logoSrcDark}
+                alt={logoAlt}
+              />
+            </CustomLink>
+          </div>
+        ) : (
           <CustomLink href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">{companyName}</span>
             <CustomImage
@@ -173,7 +268,7 @@ const Header: React.FC<HeaderProps> = ({
               alt={logoAlt}
             />
           </CustomLink>
-        </div>
+        )}
         <div className="flex lg:hidden">
           <Button
             variant="transparent"
@@ -190,10 +285,15 @@ const Header: React.FC<HeaderProps> = ({
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </Button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-12">
+        <div
+          className={classNames(
+            "hidden lg:flex lg:gap-x-12",
+            align === "right" && "lg:justify-end"
+          )}
+        >
           {navigation.map((item) => (
             <CustomLink
-              key={item.name}
+              key={item.href}
               href={item.href}
               className={classNames(
                 "text-sm font-semibold leading-6",
@@ -202,23 +302,58 @@ const Header: React.FC<HeaderProps> = ({
                   : "text-gray-900 dark:text-white"
               )}
             >
-              {item.name}
+              {item.label}
             </CustomLink>
           ))}
+          {align !== "center" && (
+            <>
+              <CustomLink
+                href="#"
+                className={classNames(
+                  "text-sm font-semibold leading-6",
+                  variant === "primary"
+                    ? "text-white"
+                    : "text-gray-900 dark:text-white"
+                )}
+              >
+                {signInButtonText} <span aria-hidden="true">&rarr;</span>
+              </CustomLink>
+              {callToAction && (
+                <CustomLink
+                  href={callToAction.href}
+                  className="ml-6 rounded-md bg-primary-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+                >
+                  {callToAction.label}
+                </CustomLink>
+              )}
+            </>
+          )}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <CustomLink
-            href="#"
-            className={classNames(
-              "text-sm font-semibold leading-6",
-              variant === "primary"
-                ? "text-white"
-                : "text-gray-900 dark:text-white"
+        {align === "center" && (
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-x-6">
+            {signInHref && (
+              <CustomLink
+                href={signInHref}
+                className={classNames(
+                  "text-sm font-semibold leading-6 my-auto",
+                  variant === "primary"
+                    ? "text-white"
+                    : "text-gray-900 dark:text-white"
+                )}
+              >
+                {signInButtonText} <span aria-hidden="true">&rarr;</span>
+              </CustomLink>
             )}
-          >
-            {signInButtonText} <span aria-hidden="true">&rarr;</span>
-          </CustomLink>
-        </div>
+            {callToAction && (
+              <CustomLink
+                href={callToAction.href}
+                className="rounded-md bg-primary-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+              >
+                {callToAction.label}
+              </CustomLink>
+            )}
+          </div>
+        )}
       </nav>
       <Dialog
         as="div"
@@ -257,21 +392,31 @@ const Header: React.FC<HeaderProps> = ({
               <div className="space-y-2 py-6">
                 {navigation.map((item) => (
                   <CustomLink
-                    key={item.name}
+                    key={item.href}
                     href={item.href}
                     className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
                   >
-                    {item.name}
+                    {item.label}
                   </CustomLink>
                 ))}
               </div>
-              <div className="py-6">
-                <CustomLink
-                  href="#"
-                  className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
-                >
-                  {signInButtonText}
-                </CustomLink>
+              <div className="py-6 flex items-center gap-x-6">
+                {signInHref && (
+                  <CustomLink
+                    href={signInHref}
+                    className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
+                  >
+                    {signInButtonText}
+                  </CustomLink>
+                )}
+                {callToAction && (
+                  <CustomLink
+                    href={callToAction.href}
+                    className="ml-auto rounded-md bg-primary-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+                  >
+                    {callToAction.label}
+                  </CustomLink>
+                )}
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import React from "react";
+import { CustomLinkComponent } from "../../helpers/Link";
 import "./Footer.scss";
 
 /**
@@ -15,7 +16,19 @@ export interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {
     icon: React.FC<React.SVGProps<SVGSVGElement>>;
   }[];
   copyright: string;
-  customLink: (href: string, children: React.ReactNode) => React.ReactNode;
+
+  /**
+   * ### Custom Link Component
+   * Custom link component to use instead of the default one.
+   * Most SPA frameworks use a custom link component.
+   * This allows to use a custom link component like `next/link`.
+   *
+   * #### Example:
+   * ```tsx
+   * <Header customLinkComponent={Link} />
+   * ```
+   */
+  customLinkComponent?: CustomLinkComponent;
 }
 
 /**
@@ -28,9 +41,6 @@ export interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {
  * ```tsx
  * <Footer
  *   copyright={`&copy; ${new Date().getFullYear()} iperka, Inc. All rights reserved.`}
- *   customLink={(href, children) => (
- *     <div onClick={() => alert(`Navigate to ${href}...`)}>{children}</div>
- *   )}
  *  navigation={[
  *   {
  *     name: 'GitHub',
@@ -57,7 +67,9 @@ export interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {
 const Footer: React.FC<FooterProps> = ({
   navigation,
   copyright,
-  customLink,
+  customLinkComponent: CustomLink = (props) => (
+    <a {...props}>{props.children}</a>
+  ),
   className,
   ...rest
 }) => {
@@ -69,18 +81,15 @@ const Footer: React.FC<FooterProps> = ({
       <div className="mx-auto max-w-7xl py-12 px-6 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex justify-center space-x-6 md:order-2">
           {navigation.map((item) => (
-            <>
-              {customLink(
-                item.href,
-                <span
-                  key={item.name}
-                  className="text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-white cursor-pointer"
-                >
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6" aria-hidden="true" />
-                </span>
-              )}
-            </>
+            <CustomLink href={item.href} key={item.href}>
+              <span
+                key={item.name}
+                className="text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-white cursor-pointer"
+              >
+                <span className="sr-only">{item.name}</span>
+                <item.icon className="h-6 w-6" aria-hidden="true" />
+              </span>
+            </CustomLink>
           ))}
         </div>
         <div className="mt-8 md:order-1 md:mt-0">

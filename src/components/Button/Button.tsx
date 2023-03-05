@@ -1,21 +1,16 @@
-import React, { ComponentPropsWithRef } from "react";
 import classNames from "classnames";
-import {
-  ForwardRefComponent,
-  HTMLMotionProps,
-  motion,
-  MotionProps,
-} from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
+import React, { ComponentPropsWithRef } from "react";
 
 const getVariantClasses = (
-  variant: "primary" | "secondary" | "white"
+  variant: "primary" | "secondary" | "transparent"
 ): string => {
   switch (variant) {
     case "secondary":
       return "border border-transparent text-primary-700 bg-primary-100 hover:bg-primary-200 focus:ring-primary-500 disabled:opacity-50 disabled:hover:bg-primary-100 disabled:cursor-not-allowed";
 
-    case "white":
-      return "border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-primary-500 disabled:opacity-50 disabled:hover:bg-white disabled:cursor-not-allowed";
+    case "transparent":
+      return "border border-gray-300 text-gray-700 bg-transparent hover:bg-gray-50 focus:ring-primary-500 disabled:opacity-50 disabled:hover:bg-white disabled:cursor-not-allowed";
 
     case "primary":
     default:
@@ -45,7 +40,7 @@ const getSizeClasses = (size: "small" | "medium" | "large"): string => {
  */
 export interface ButtonProps extends ComponentPropsWithRef<"button"> {
   children: React.ReactNode | string;
-  variant?: "primary" | "secondary" | "white";
+  variant?: "primary" | "secondary" | "transparent";
   size?: "small" | "medium" | "large";
   className?: string;
 }

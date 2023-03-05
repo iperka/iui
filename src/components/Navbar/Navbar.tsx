@@ -2,10 +2,10 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import classNames from "classnames";
 import React, { Fragment } from "react";
-import Avatar, { AvatarProps } from "../Avatar/Avatar";
 import LogoDark from "../../assets/logo_dark.svg";
-import "./Navbar.scss";
+import Avatar, { AvatarProps } from "../Avatar/Avatar";
 import Button from "../Button";
+import "./Navbar.scss";
 
 /**
  * Interface describing component properties.
